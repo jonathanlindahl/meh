@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
-    Article findByTitle();
+    Article findByTitle(String title);
+    Article findByPublished(Long published);
 }
