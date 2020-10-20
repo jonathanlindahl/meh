@@ -7,15 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.time.Instant;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 public class ArticleService {
     @Autowired
-    ArticleRepository articleRepository;
+    private ArticleRepository articleRepository;
     
     public List<Article> getAll() {
         return articleRepository.findAll();

@@ -2,6 +2,7 @@ package com.domain.meh.controllers;
 
 import com.domain.meh.models.Article;
 import com.domain.meh.services.ArticleService;
+import com.domain.meh.services.SortingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,16 +13,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 public class ArticleController {
     @Autowired
     ArticleService articleService;
+    @Autowired
+    SortingService sortingService;
     
     @GetMapping("/all")
     public List<Article> getAll() {
         return articleService.getAll();
+    }
+    
+    @GetMapping("/allsorted")
+    public List<Article> getAllSorted() {
+        return sortingService.sortByPublished(getAll());
     }
     
     @GetMapping("/getbyid")

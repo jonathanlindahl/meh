@@ -6,10 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.Instant;
+import java.util.Comparator;
 
 @Entity
 @Table(name = "articles")
-public class Article {
+public class Article implements Comparable<Article> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -32,6 +33,13 @@ public class Article {
     public void setTitle(String title) { this.title = title; }
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
+    
+    @Override
+    public int compareTo(Article a) {
+        return Long.compare(this.published, a.getPublished());
+    }
+    
+    public static final Comparator<Article> sortPublished = Article::compareTo;
     
     @Override
     public String toString() {
