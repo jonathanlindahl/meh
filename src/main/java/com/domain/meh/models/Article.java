@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.Instant;
-import java.util.Comparator;
 
 @Entity
 @Table(name = "articles")
@@ -38,8 +37,6 @@ public class Article implements Comparable<Article> {
     public int compareTo(Article a) {
         return Long.compare(this.published, a.getPublished());
     }
-    
-    public static final Comparator<Article> sortPublished = Article::compareTo;
     
     @Override
     public String toString() {

@@ -17,9 +17,9 @@ import java.util.List;
 @RestController
 public class ArticleController {
     @Autowired
-    ArticleService articleService;
+    private ArticleService articleService;
     @Autowired
-    SortingService sortingService;
+    private SortingService sortingService;
     
     @GetMapping("/all")
     public List<Article> getAll() {
