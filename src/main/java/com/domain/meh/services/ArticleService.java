@@ -2,6 +2,7 @@ package com.domain.meh.services;
 
 import com.domain.meh.models.Article;
 import com.domain.meh.repositories.ArticleRepository;
+import com.domain.meh.utility.GlobalStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +37,7 @@ public class ArticleService {
     }
     
     public Article save(@RequestBody Article newArticle) {
+        GlobalStorage.addArticle(newArticle);
         return articleRepository.save(newArticle);
     }
     
@@ -46,14 +48,17 @@ public class ArticleService {
             oldArticle.setPublished();
             oldArticle.setTitle(article.getTitle());
             oldArticle.setContent(article.getContent());
+            GlobalStorage.updateArticle(oldArticle);
             return oldArticle;
         }
         throw new NoSuchElementException();
     }
     
     public void delete(@RequestParam Long id) {
-        if (getById(id) != null)
+        if (getById(id) != null) {
+            GlobalStorage.deleteArticle(getById(id));
             articleRepository.delete(getById(id));
+        }
         throw new NoSuchElementException();
     }
 }
