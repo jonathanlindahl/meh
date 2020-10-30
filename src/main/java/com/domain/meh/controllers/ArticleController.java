@@ -21,42 +21,42 @@ public class ArticleController {
     @Autowired
     private SortingService sortingService;
     
-    @GetMapping("/all")
+    @GetMapping("articles/all")
     public List<Article> getAll() {
         return articleService.getAll();
     }
     
-    @GetMapping("/allsorted")
+    @GetMapping("articles/allsorted")
     public List<Article> getAllSorted() {
         return sortingService.sortByPublished(getAll());
     }
     
-    @GetMapping("/getbyid")
+    @GetMapping("articles/getbyid")
     public Article getById(@RequestParam Long id) {
         return articleService.getById(id);
     }
     
-    @GetMapping("/getbytitle")
+    @GetMapping("articles/getbytitle")
     public Article getByTitle(@RequestParam String title) {
         return articleService.getByTitle(title);
     }
     
-    @GetMapping("/getbypublished")
+    @GetMapping("articles/getbypublished")
     public Article getByPublished(@RequestParam Long published) {
         return articleService.getByPublished(published);
     }
     
-    @PostMapping("/newarticle")
+    @PostMapping("articles/create")
     public Article newArticle(@RequestBody Article newArticle) {
         return articleService.save(newArticle);
     }
     
-    @PutMapping("/updatearticle")
+    @PutMapping("articles/update")
     public Article updateArticle(@RequestBody Article article) {
         return articleService.update(article);
     }
     
-    @DeleteMapping("/deletearticle")
+    @DeleteMapping("articles/delete")
     public void deleteArticle(@RequestParam Long id) {
         articleService.delete(id);
     }

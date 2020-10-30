@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="site-head">
+    <meta charset="UTF-8">
+</head>
+<body>
+<header th:fragment="site-header">
+    <a href="index.html" th:href="@{/}">Home</a>
+    <a href="articles/all" th:href="@{/articles/all}">articles</a>
+    <a href="articles/allsorted.html" th:href="@{/articles/allsorted}">sort</a>
+    <a href="articles/create.html" th:href="@{/articles/create}">create</a>
+    <a href="articles/update.html" th:href="@{/articles/update}">update</a>
+    <a href="articles/delete.html" th:href="@{/articles/delete}">delete</a>
+</header>
+<h1>meh</h1>
+<p>meh paragraph</p>
+<footer th:fragment="site-footer">
+    MEH
+</footer>
+</body>
+</html>

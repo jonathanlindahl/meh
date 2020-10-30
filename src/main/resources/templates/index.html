@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+<head th:replace="layout :: site-head">
     <title>meh</title>
 </head>
+
 <body>
+<header th:replace="layout :: site-header"/>
     <h1>MEH</h1>
-    <b th:text="${execInfo.now.time}"></b>
+<footer th:replace="layout :: site-footer"/>
 </body>
 </html>
