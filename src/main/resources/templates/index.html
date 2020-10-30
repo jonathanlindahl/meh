@@ -7,6 +7,12 @@
 <body>
 <header th:replace="layout :: site-header"/>
     <h1>MEH</h1>
+<main id="articles">
+    <article th:each="a : ${allarticles}">
+        <h2 class="title" th:text="${a.title}">Title</h2>
+        <p class="content" th:text="${a.content}">content</p>
+    </article>
+</main>
 <footer th:replace="layout :: site-footer"/>
 </body>
 </html>
