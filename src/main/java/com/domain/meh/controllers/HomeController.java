@@ -15,9 +15,14 @@ public class HomeController {
     ArticleService articleService;
     
     @RequestMapping("/")
-    public String index(Model model) {
+    public String index() {
+        return "index";
+    }
+    
+    @RequestMapping("/all")
+    public String all(Model model) {
         List<Article> articles = articleService.getAll();
         model.addAttribute("allarticles", articles);
-        return "index";
+        return "all";
     }
 }
