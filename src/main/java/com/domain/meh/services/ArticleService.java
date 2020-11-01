@@ -58,6 +58,7 @@ public class ArticleService {
             storage.deleteArticle(getById(id));
             articleRepository.delete(getById(id));
         }
-        throw new NoSuchElementException();
+        else
+            throw new NoSuchElementException();
     }
 }

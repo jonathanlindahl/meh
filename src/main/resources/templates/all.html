@@ -12,7 +12,7 @@
         <h2 class="title" th:text="${a.title}">Title</h2>
         <p class="content" th:text="${a.content}">content</p>
         <a th:href="@{/update/{id}(id=${a.id})}">update</a>
-        <a th:href="@{/delete/{id}(id=${a.id})}">delete</a>
+        <a th:href="@{/articles/delete/{id}(id=${a.id})}">delete</a>
     </article>
 </main>
 <footer th:replace="layout :: site-footer"/>

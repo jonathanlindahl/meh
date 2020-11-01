@@ -56,8 +56,8 @@ public class ArticleController {
 //        return articleService.update(article);
 //    }
     
-    @DeleteMapping("articles/delete")
-    public void deleteArticle(@RequestParam Long id) {
-        articleService.delete(id);
-    }
+//    @DeleteMapping("articles/delete")
+//    public void deleteArticle(@RequestParam Long id) {
+//        articleService.delete(id);
+//    }
 }
