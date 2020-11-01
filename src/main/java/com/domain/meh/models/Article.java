@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 import java.time.Instant;
 
 @Entity
@@ -12,10 +13,10 @@ import java.time.Instant;
 public class Article implements Comparable<Article> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    Long published;
-    String title;
-    String content;
+    private Long id;
+    private Long published;
+    private String title;
+    private String content;
     
     public Article() {
         published = Instant.now().getEpochSecond();
@@ -28,6 +29,7 @@ public class Article implements Comparable<Article> {
     }
     
     public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
     public Long getPublished() { return published; }
     public void setPublished() { published = Instant.now().getEpochSecond(); }
     public String getTitle() { return title; }
@@ -43,7 +45,8 @@ public class Article implements Comparable<Article> {
     @Override
     public String toString() {
         return "Article{" +
-                "published=" + published +
+                "id=" + id +
+                ", published=" + published +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 '}';

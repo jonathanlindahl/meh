@@ -1,6 +1,7 @@
 package com.domain.meh.controllers;
 
 import com.domain.meh.models.Article;
+import com.domain.meh.repositories.ArticleRepository;
 import com.domain.meh.services.ArticleService;
 import com.domain.meh.services.SortingService;
 import com.domain.meh.utility.GlobalStorage;
@@ -8,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -20,6 +23,8 @@ public class HomeController {
     ArticleService articleService;
     @Autowired
     SortingService sortingService;
+    @Autowired
+    ArticleRepository articleRepository;
     GlobalStorage storage = GlobalStorage.getInstance();
     
     @RequestMapping("/")
@@ -60,6 +65,20 @@ public class HomeController {
     public String create(Model model) {
         model.addAttribute("article", new Article());
         return "create";
+    }
+    
+    @PostMapping("/articles/update/{id}")
+    public String updateArticle(@PathVariable("id") Long id, @Valid Article article, Model model) {
+        if (!article.getTitle().isBlank() && !article.getContent().isBlank() && id != null) {
+            articleService.update(article);
+        }
+        return "index";
+    }
+    
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+    public String update(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("article", articleService.getById(id));
+        return "update";
     }
     
     public boolean containsTitle(List<Article> articles, String title) {

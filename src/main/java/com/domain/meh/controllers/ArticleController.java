@@ -51,10 +51,10 @@ public class ArticleController {
 //        return articleService.save(newArticle);
 //    }
     
-    @PutMapping("articles/update")
-    public Article updateArticle(@RequestBody Article article) {
-        return articleService.update(article);
-    }
+//    @PutMapping("articles/update")
+//    public Article updateArticle(@RequestBody Article article) {
+//        return articleService.update(article);
+//    }
     
     @DeleteMapping("articles/delete")
     public void deleteArticle(@RequestParam Long id) {

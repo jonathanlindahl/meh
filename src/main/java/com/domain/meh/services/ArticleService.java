@@ -48,7 +48,7 @@ public class ArticleService {
             oldArticle.setTitle(article.getTitle());
             oldArticle.setContent(article.getContent());
             storage.updateArticle(oldArticle);
-            return oldArticle;
+            return articleRepository.save(oldArticle);
         }
         throw new NoSuchElementException();
     }
