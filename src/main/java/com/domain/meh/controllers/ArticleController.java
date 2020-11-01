@@ -46,10 +46,10 @@ public class ArticleController {
         return articleService.getByPublished(published);
     }
     
-    @PostMapping("articles/create")
-    public Article newArticle(@RequestBody Article newArticle) {
-        return articleService.save(newArticle);
-    }
+//    @PostMapping("articles/create")
+//    public Article newArticle(@RequestBody Article newArticle) {
+//        return articleService.save(newArticle);
+//    }
     
     @PutMapping("articles/update")
     public Article updateArticle(@RequestBody Article article) {

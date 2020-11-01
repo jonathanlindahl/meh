@@ -17,7 +17,9 @@ public class Article implements Comparable<Article> {
     String title;
     String content;
     
-    public Article() {}
+    public Article() {
+        published = Instant.now().getEpochSecond();
+    }
     
     public Article(String title, String content) {
         published = Instant.now().getEpochSecond();
