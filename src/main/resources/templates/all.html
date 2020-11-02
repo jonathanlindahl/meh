@@ -10,7 +10,9 @@
 <main id="articles">
     <article th:each="a : ${allarticles}">
         <h2 class="title" th:text="${a.title}">Title</h2>
-        <p class="content" th:text="${a.content}">content</p>
+        <p class="published" th:text="${a.published}">published</p>
+        <textarea name="contentArea" cols="50" rows="5" class="content" th:text="${a.content}" readonly>content</textarea>
+        <br>
         <a th:href="@{/update/{id}(id=${a.id})}">update</a>
         <a th:href="@{/articles/delete/{id}(id=${a.id})}">delete</a>
     </article>
