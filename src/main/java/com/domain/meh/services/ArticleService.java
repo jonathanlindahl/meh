@@ -40,7 +40,6 @@ public class ArticleService {
         return articleRepository.save(newArticle);
     }
     
-    // TODO: does this actually return the article object
     public Article update(Article article) {
         Article oldArticle = getById(article.getId());
         if (oldArticle != null) {
