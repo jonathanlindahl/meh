@@ -16,14 +16,6 @@ public class MehApplication {
     public CommandLineRunner createEntries(
             ArticleRepository articleRepository) {
         return (args) -> {
-//            String title = "title";
-//            String content = "content";
-//            for (int i = 1; i < 11; ++i) {
-//                articleRepository.save(
-//                        new Article(
-//                                title + String.valueOf(i),
-//                                content + String.valueOf(i)));
-//            }
         };
     }
 }
